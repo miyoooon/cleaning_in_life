@@ -12,6 +12,18 @@
   </head>
 
   <body>
+    <header>
+      <div class="container">
+        <% if user_signed_in? %>
+          <div class="row">
+            <div class="col">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-dark" %>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
