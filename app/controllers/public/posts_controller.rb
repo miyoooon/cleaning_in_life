@@ -5,7 +5,13 @@ def new
 end
 
 def create
-  @post = Post.new(posts_params)
+  @post = Post.new(post_params)
+  @post.user_id = current_user.id
+  if @post.save
+    redirect_to posts_path
+  else
+    render :new
+  end
 end
 
 def index
@@ -25,7 +31,7 @@ end
 
 private
 
-def posts_params
+def post_params
   params.require(:post).permit(:title, :text)
 end
 
