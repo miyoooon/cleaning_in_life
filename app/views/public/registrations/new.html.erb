@@ -11,7 +11,14 @@
       <div class="mb-3 row mt-5">
         <label class="col-2 col-form-label">名前</label>
         <div class="col-sm-4">
-          <%= f.text_field :name, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+          <%= f.text_field :name, class: "form-control", autofocus: true, autocomplete: "name", placeholder: "令和 道子" %>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">紹介文</label>
+        <div class="col-sm-4">
+          <%= f.text_field :introduce, class: "form-control", autofocus: true, autocomplete: "introduce", placeholder: "よろしくお願いします" %>
         </div>
       </div>
 

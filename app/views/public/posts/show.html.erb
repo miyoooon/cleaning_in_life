@@ -1,2 +1,42 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container">
+   <div class="row col-6">
+    <div class="col ms-5 mt-5 text-center">
+      <h2 class="border rounded border-dark"><%= @post.user.name %>さんの投稿詳細</h2>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-2">
+      <label>タイトル</label>
+    </div>
+    <div class="col-4">
+      <%= @post.title %>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-2">
+      <label>本文</label>
+    </div>
+    <div class="col-4">
+      <%= @post.text %>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-2">
+      <label>タグ</label>
+    </div>
+    <div class="col-2 text-center">
+      <% if @post.tag.present? %>
+        <%= @post.tag.name %>
+      <% else %>
+        タグ付けはされていません
+      <% end %>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <% if @post.user_id == current_user.id %>
+        <%= link_to "編集する", edit_post_path, class: "btn btn-success btn-lg col-5" %>
+      <% end %>
+    </div>
+  </div>
+</div>

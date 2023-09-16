@@ -14,6 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       ## Rememberable
       t.datetime :remember_created_at
       t.string :name, null: false
+      t.string :introduce
       t.boolean :is_deleted, null: false, default: false
 
 

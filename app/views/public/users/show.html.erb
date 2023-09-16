@@ -1,0 +1,39 @@
+<div class="container">
+   <div class="row col-7">
+    <div class="col ms-5 mt-5 text-center">
+      <h2 class="border rounded border-dark"><%= @user.name %>さんのマイページ</h2>
+    </div>
+  </div>
+  <div class="row mt-3  border-top border-dark pt-3">
+    <%= @user.name %>
+  </div>
+  <div class="row mt-3">
+    <%= @user.introduce %>
+  </div>
+  <% if @user.id = current_user.id %>
+  <div class="row mt-3  border-bottom border-dark pb-3">
+    <%= link_to "編集する", edit_user_path, class: "btn btn-success" %>
+  </div>
+  <% end %>
+
+
+
+  <% @posts.each do |post| %>
+  <div class="row justify-content-center">
+    <div class="border border-dark col-8 mt-5">
+      <div class="row col-6">
+        <%= @user.name %>さんの投稿
+      </div>
+      <div class="row col-6">
+        <%= post.title %>
+      </div>
+      <div class="row col">
+        <%= post.text %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="row justify-content-center mt-5 mb-5">
+    <%= paginate @posts %>
+  </div>
+</div>
