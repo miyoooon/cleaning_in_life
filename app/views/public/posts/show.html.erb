@@ -33,10 +33,13 @@
     </div>
   </div>
   <div class="row mt-5">
-    <div class="col">
+    <div class="col-4">
       <% if @post.user_id == current_user.id %>
-        <%= link_to "編集する", edit_post_path, class: "btn btn-success btn-lg col-5" %>
+        <%= link_to "編集する", edit_post_path, class: "btn btn-success btn-lg col-4" %>
       <% end %>
+    </div>
+    <div class="col-5">
+      <%= link_to "投稿一覧へ戻る", posts_path, class: "btn btn-primary btn-lg col-5" %>
     </div>
   </div>
 </div>
