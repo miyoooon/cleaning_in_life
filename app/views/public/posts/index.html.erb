@@ -1,0 +1,29 @@
+<div class="container">
+   <div class="row col-3">
+    <div class="col ms-5 mt-5 text-center">
+      <h2 class="border rounded border-dark">投稿一覧</h2>
+    </div>
+  </div>
+
+  <% @posts.each do |post| %>
+  <div class="row justify-content-center">
+    <div class="border border-dark col-8 mt-5">
+      <div class="row col-6">
+        <%= link_to post.user.name, user_path(post.user.id), class: "text-dark" %>さんの投稿
+      </div>
+      <div class="row col-6">
+        <%= post.title %>
+      </div>
+      <div class="row col">
+        <%= post.text %>
+      </div>
+      <div class="row justify-content-center my-3">
+        <%= link_to "投稿詳細", post_path(post.id), class: "btn btn-outline-primary btn-lg" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="row justify-content-center mt-5 mb-5">
+    <%= paginate @posts %>
+  </div>
+</div>

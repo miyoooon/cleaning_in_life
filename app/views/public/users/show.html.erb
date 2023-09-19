@@ -13,7 +13,7 @@
     <div class="col">
       <%= @user.introduce %>
     </div>
-     <% if @user.id == current_user.id %>
+     <% if @user == current_user or current_admin %>
     <div class="col-4">
       <%= link_to "編集する", edit_user_path, class: "btn btn-success" %>
     </div>

@@ -7,7 +7,7 @@ class Public::UsersController < ApplicationController
   def edit
     user = User.find(params[:id])
     @user = User.find(params[:id])
-    unless user.id == current_user.id
+    unless user == current_user or current_admin
       redirect_to user_path(@user.id)
     end
   end

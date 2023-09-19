@@ -15,6 +15,7 @@ def create
 end
 
 def index
+  @posts = Post.page(params[:page])
 end
 
 def show
@@ -23,9 +24,9 @@ end
 
 def edit
   @post = Post.find(params[:id])
-   unless @post.user_id == current_user.id
+  unless @post.user == current_user or current_admin
       redirect_to post_path(@post.id)
-    end
+  end
 end
 
 def update

@@ -34,7 +34,7 @@
   </div>
   <div class="row mt-5">
     <div class="col-4">
-      <% if @post.user_id == current_user.id %>
+      <% if @post.user == current_user or current_admin %>
         <%= link_to "編集する", edit_post_path, class: "btn btn-success btn-lg col-4" %>
       <% end %>
     </div>
