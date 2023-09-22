@@ -15,7 +15,14 @@ def create
 end
 
 def index
-  @posts = Post.page(params[:page])
+  if params[:word].present?
+    @posts = Post.where("title LIKE ? OR text LIKE ?", "%#{params[:word]}%", "%#{params[:word]}%").page(params[:page])
+  else
+    @posts = Post.page(params[:page])
+  end
+  if params[:tag_id].present?
+    @posts = @posts.joins(:tags).where(tags: { id: params[:tag_id] })
+  end
 end
 
 def show

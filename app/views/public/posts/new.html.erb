@@ -34,7 +34,7 @@
       <label>タグ</label>
     </div>
     <div class="col-4 text-center">
-      <%= f.collection_select :tag_id, Tag.all, :id, :name, include_blank: "選択してください" %>
+      <%= f.collection_select :tag_id, Tag.all, :id, :name, include_blank: "タグを選択してください" %>
     </div>
   </div>
   <div class="row mt-5">
