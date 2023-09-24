@@ -33,6 +33,23 @@
     </div>
   </div>
   <div class="row mt-5">
+    <div class="col-11 text-center">
+      <% if @post.favorited_by?(current_user) %>
+    <p>
+      <%= link_to post_favorites_path(@post), method: :delete, class: "btn btn-danger" do %>
+        ♥<%= @post.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_favorites_path(@post), method: :post, class: "btn btn-outline-danger" do %>
+        ♡<%= @post.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+    </div>
+  </div>
+  <div class="row mt-5">
     <div class="col-4">
       <% if @post.user == current_user or current_admin %>
         <%= link_to "編集する", edit_post_path, class: "btn btn-success btn-lg col-4" %>

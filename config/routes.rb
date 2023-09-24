@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
-    resources :posts
+    resources :posts do
+      resource :favorites, only: [:create, :destroy]
+    end
     resources :users, only: [:show, :edit, :update]
     patch "/users/:id/withdraw" => "users#withdraw", as: "user_withdraw"
   end
