@@ -1,0 +1,41 @@
+<div class="container">
+   <div class="row col-5">
+    <div class="col ms-5 mt-5 text-center">
+      <h2 class="border rounded border-dark">いいねした投稿一覧</h2>
+    </div>
+  </div>
+
+    <% @favorite_posts.each do |favorite_post| %>
+    <div class="row justify-content-center">
+    <div class="border border-dark col-8 mt-5">
+      <div class="row col-6">
+        <%= link_to favorite_post.user.name, user_path(favorite_post.user.id), class: "text-dark" %>さんの投稿
+      </div>
+      <div class="row col-6">
+        タイトル:　<%= favorite_post.title %>
+      </div>
+      <div class="row col">
+        本文:　<%= favorite_post.text %>
+      </div>
+      <div class="row mt-5 col justify-content-end">
+        <% if favorite_post.favorited_by?(current_user) %>
+        <p>
+          <%= link_to post_favorites_path(favorite_post), method: :delete, class: "btn btn-danger" do %>
+            ♥<%= favorite_post.favorites.count %> いいね
+          <% end %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to post_favorites_path(favorite_post), method: :post, class: "btn btn-outline-danger" do %>
+            ♡<%= favorite_post.favorites.count %> いいね
+          <% end %>
+        </p>
+        <% end %>
+      </div>
+      <div class="row justify-content-center my-3">
+        <%= link_to "投稿詳細", post_path(favorite_post.id), class: "btn btn-outline-primary btn-lg" %>
+      </div>
+    </div>
+    </div>
+    <% end %>
+</div>

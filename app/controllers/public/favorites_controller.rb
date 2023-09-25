@@ -12,4 +12,9 @@ class Public::FavoritesController < ApplicationController
     favorite.destroy
     redirect_to post
   end
+
+  def index
+    favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+  end
 end

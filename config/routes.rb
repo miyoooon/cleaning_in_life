@@ -11,9 +11,13 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :posts do
-      resource :favorites, only: [:create, :destroy]
+      resource :favorites, only: [:index, :create, :destroy]
     end
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+      member do
+      get "favorites" => "favorites#index", as: "favorites"
+      end
+    end
     patch "/users/:id/withdraw" => "users#withdraw", as: "user_withdraw"
   end
 
