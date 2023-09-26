@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :tag, optional: true
   has_many :favorites, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
   validates :title, presence: true
   validates :text, presence: true

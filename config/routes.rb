@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :posts do
       resource :favorites, only: [:index, :create, :destroy]
+      resources :post_comments, only: [:create]
     end
     resources :users, only: [:show, :edit, :update] do
       member do

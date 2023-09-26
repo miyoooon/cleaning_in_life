@@ -15,6 +15,7 @@ def create
 end
 
 def index
+  @post_comment = PostComment.new
   if params[:word].present?
     @posts = Post.where("title LIKE ? OR text LIKE ?", "%#{params[:word]}%", "%#{params[:word]}%").page(params[:page])
   else
@@ -27,6 +28,7 @@ end
 
 def show
   @post = Post.find(params[:id])
+  @post_comment = PostComment.new
 end
 
 def edit
