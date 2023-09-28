@@ -50,11 +50,26 @@
     </div>
   </div>
   <div class="row mt-5 col">
-    <p>コメント件数:　<%= @post.post_comments.count %>件</p>
-      <% @post.post_comments.each do |post_comment| %>
-        <%= post_comment.user.name %>さん
-        <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-      <% end %>
+    コメント件数:　<%= @post.post_comments.count %>件
+  </div>
+  <div class="mt-3">
+    <% @post.post_comments.each do |post_comment| %>
+      <div class="row col">
+        <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+      </div>
+      <div class="row col">
+        <%= link_to user_path, style: 'color: black;' do %>
+          <%= post_comment.user.name %>
+        <% end %>
+        さん:
+        <%= post_comment.comment %>
+      </div>
+      <div class="row col mt-3">
+        <% if @post.user == current_user or current_admin %>
+          <%= link_to "コメントを編集する", edit_post_post_comment_path(@post, post_comment.id), class: "btn btn-success" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
   <div class="row mt-5 col-6 justify-content-center">
     <%= form_with model: [@post, @post_comment] do |f| %>
