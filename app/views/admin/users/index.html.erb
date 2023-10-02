@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row col-6">
+    <div class="col ms-5 mt-5 text-center">
+      <h2 class="border rounded border-dark">ユーザー一覧画面</h2>
+    </div>
+  </div>
+
+  <div class="mt-5">
+  <% @users.each do |user| %>
+    <div class="row my-3 border-bottom">
+      <div class="col my-3">
+        <%= user.id %>
+      </div>
+      <div class="col my-3">
+        <%= link_to admin_users_show_path(user.id), style: 'color: black;' do %>
+          <%= user.name %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

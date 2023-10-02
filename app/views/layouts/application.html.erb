@@ -21,6 +21,13 @@
             </div>
           </div>
         <% end %>
+        <% if admin_signed_in? %>
+          <div class="row">
+            <div class="col">
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %>
+            </div>
+          </div>
+        <% end %>
 
       </div>
     </header>
