@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    get 'users/index'
-    get 'users/show'
-    get 'users/edit'
+    resources :tags, only: [:new, :create, :index, :edit, :update, :destroy]
+  end
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
   end
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "public/registrations",

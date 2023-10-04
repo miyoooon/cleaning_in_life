@@ -22,7 +22,7 @@ def index
     @posts = Post.page(params[:page])
   end
   if params[:tag_id].present?
-    @posts = @posts.joins(:tags).where(tags: { id: params[:tag_id] })
+    @posts = @posts.joins(:tag).where(tags: { id: params[:tag_id] })
   end
 end
 

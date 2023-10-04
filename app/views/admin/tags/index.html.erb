@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row col-4">
+    <div class="col ms-5 mt-5 text-center">
+      <h2 class="border rounded border-dark">タグ一覧画面</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mt-5 border-bottom">
+      <p>タグ名</p>
+    </div>
+  </div>
+  <% @tags.each do |tag| %>
+  <div class="row mt-5 mb-3 border-bottom">
+    <div class="col">
+      <%= tag.name %>
+    </div>
+    <div class="col">
+      <%= link_to "編集する", edit_admin_tag_path(tag.id), class: "mb-3 btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
+</div>

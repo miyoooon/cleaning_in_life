@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row col-4">
+    <div class="col ms-5 mt-5 text-center">
+      <h2 class="border rounded border-dark">タグ編集画面</h2>
+    </div>
+  </div>
+  <%= form_with model: @tag, url: admin_tag_path, method: :patch do |f| %>
+  <div class="row mt-5">
+    <div class="col-5">
+      <p>タグ名:</p>
+      <span><%= f.text_field :name, class: "form-control" %></span>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-4">
+      <%= f.submit "編集する", class: "btn btn-success btn-lg col-4" %>
+    </div>
+    <div class="col-4">
+      <%= link_to "削除する", admin_tag_path(@tag.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-lg col-4" %>
+    </div>
+  </div>
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col">
+      <%= link_to "戻る", admin_tags_path, class: "btn btn-primary btn-lg col-3" %>
+    </div>
+  </div>
+  <% end %>
+</div>

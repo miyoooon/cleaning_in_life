@@ -6,17 +6,26 @@
   </div>
 
   <div class="mt-5">
+    <div class="row my-3 border-bottom">
+      <div class="col my-3">
+        <p>ユーザーID</p>
+      </div>
+      <div class="col my-3">
+        <p>ユーザー名</p>
+      </div>
+    </div>
   <% @users.each do |user| %>
     <div class="row my-3 border-bottom">
       <div class="col my-3">
         <%= user.id %>
       </div>
       <div class="col my-3">
-        <%= link_to admin_users_show_path(user.id), style: 'color: black;' do %>
+        <%= link_to admin_user_path(user.id), style: 'color: black;' do %>
           <%= user.name %>
         <% end %>
       </div>
     </div>
   <% end %>
+  <% paginate @users %>
   </div>
 </div>
