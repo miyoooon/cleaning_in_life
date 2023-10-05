@@ -15,16 +15,51 @@
     <header>
       <div class="container">
         <% if user_signed_in? %>
-          <div class="row">
-            <div class="col">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-dark" %>
+          <div class="row mb-5">
+            <div class="col mt-3">
+              <ul class="nav">
+
+              </ul>
+            </div>
+            <div class="col mt-3">
+              <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <%= link_to "マイページ", user_path(current_user.id), class: "btn btn-outline-dark" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "投稿する", new_post_path, class: "btn btn-outline-dark" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "投稿一覧", posts_path, class: "btn btn-outline-dark" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-dark" %>
+                </li>
+              </ul>
             </div>
           </div>
-        <% end %>
-        <% if admin_signed_in? %>
-          <div class="row">
-            <div class="col">
-              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %>
+        <% elsif admin_signed_in? %>
+          <div class="row mb-5">
+            <div class="col mt-3">
+              <ul class="nav">
+
+              </ul>
+            </div>
+            <div class="col mt-3">
+              <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <%= link_to "ユーザー一覧", admin_users_path, class: "btn btn-outline-dark" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "タグ一覧", admin_tags_path, class: "btn btn-outline-dark" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "投稿一覧", posts_path, class: "btn btn-outline-dark" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %>
+                </li>
+              </ul>
             </div>
           </div>
         <% end %>

@@ -24,7 +24,7 @@
     <div class="col-2">
       <label>タグ</label>
     </div>
-    <div class="col-2 text-center">
+    <div class="col-2">
       <% if @post.tag.present? %>
         <%= @post.tag.name %>
       <% else %>
@@ -32,23 +32,25 @@
       <% end %>
     </div>
   </div>
-  <div class="row mt-5">
-    <div class="col-11 text-center">
-      <% if @post.favorited_by?(current_user) %>
-    <p>
-      <%= link_to post_favorites_path(@post), method: :delete, class: "btn btn-danger" do %>
-        ♥<%= @post.favorites.count %> いいね
+  <% if user_signed_in? %>
+    <div class="row mt-5">
+      <div class="col-11 text-center">
+        <% if @post.favorited_by?(current_user) %>
+      <p>
+        <%= link_to post_favorites_path(@post), method: :delete, class: "btn btn-danger" do %>
+          ♥<%= @post.favorites.count %> いいね
+        <% end %>
+      </p>
+      <% else %>
+      <p>
+        <%= link_to post_favorites_path(@post), method: :post, class: "btn btn-outline-danger" do %>
+          ♡<%= @post.favorites.count %> いいね
+        <% end %>
+      </p>
       <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to post_favorites_path(@post), method: :post, class: "btn btn-outline-danger" do %>
-        ♡<%= @post.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div class="row mt-5 col">
     コメント件数:　<%= @post.post_comments.count %>件
   </div>

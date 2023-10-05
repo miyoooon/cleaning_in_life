@@ -13,6 +13,9 @@
     <div class="col">
       <%= @user.introduce %>
     </div>
+    <div class="col-3">
+      <%= link_to "いいねした投稿一覧",favorites_user_path(@user.id), class: "btn btn-danger" %>
+    </div>
      <% if @user == current_user or current_admin %>
     <div class="col-4">
       <%= link_to "編集する", edit_user_path, class: "btn btn-success" %>

@@ -16,8 +16,13 @@
       <%= tag.name %>
     </div>
     <div class="col">
-      <%= link_to "編集する", edit_admin_tag_path(tag.id), class: "mb-3 btn btn-primary" %>
+      <%= link_to "編集する", edit_admin_tag_path(tag.id), class: "mb-3 btn btn-success" %>
     </div>
   </div>
   <% end %>
+  <div class="row mt-5">
+    <div class="col">
+      <%= link_to "タグを追加する", new_admin_tag_path, class: "btn btn-primary" %>
+    </div>
+  </div>
 </div>

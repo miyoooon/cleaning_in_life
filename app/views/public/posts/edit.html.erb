@@ -34,9 +34,9 @@
     <div class="col-4">
       <%= f.submit "変更を保存する", class: "btn btn-success btn-lg" %>
     </div>
-  <% end %>
     <div class="col-5">
       <%= link_to "投稿を削除する", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-lg" %>
     </div>
   </div>
+  <% end %>
 </div>
