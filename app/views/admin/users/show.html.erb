@@ -1,2 +1,48 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="container">
+   <div class="row col-7">
+    <div class="col ms-5 mt-5 text-center">
+      <h2 class="border rounded border-dark"><%= @user.name %>さんの詳細</h2>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-3">
+      <p>ユーザーID</p>
+    </div>
+    <div class="col-7">
+      <%= @user.id %>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-3">
+      <p>ユーザー名</p>
+    </div>
+    <div class="col-7">
+      <%= @user.name %>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-3">
+      <p>紹介文</p>
+    </div>
+    <div class="col-7">
+      <%= @user.introduce %>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-3">
+      <p>有効/退会</p>
+    </div>
+    <div class="col-7">
+      <% if @user.is_deleted == false %>
+        <p class="text-success">有効</p>
+      <% else %>
+        <p class="text-danger">退会済み</p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row my-5">
+    <div class="col">
+      <%= link_to "編集する", edit_admin_user_path, class: "btn btn-success btn-lg col-6" %>
+    </div>
+  </div>
+</div>

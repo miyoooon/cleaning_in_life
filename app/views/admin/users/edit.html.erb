@@ -1,2 +1,55 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div class="container">
+   <div class="row col-7">
+      <div class="col ms-5 mt-5 text-center">
+        <h2 class="border rounded border-dark"><%= @user.name %>さんの編集</h2>
+      </div>
+    </div>
+    <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
+    <div class="row mt-5">
+      <div class="col-3">
+        <p>ユーザーID</p>
+      </div>
+      <div class="col-5">
+        <p><%= @user.id %></p>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-3">
+        <p>ユーザー名</p>
+      </div>
+      <div class="col-5">
+        <p><%= f.text_field :name, class: "form-control" %></p>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-3">
+        <p>紹介文</p>
+      </div>
+      <div class="col-5">
+        <p><%= f.text_area :introduce, class: "form-control" %></p>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-3">
+        <p>有効/退会</p>
+      </div>
+      <div class="col-5">
+        <p>
+          <%= f.radio_button :is_deleted, :false %>
+          <%= f.label :is_deleted, "有効" %>
+          <%= f.radio_button :is_deleted, :true %>
+          <%= f.label :is_deleted, "退会" %>
+        </p>
+      </div>
+    </div>
+
+    <div class="row mt-5 d-flex justify-content-center">
+      <div class="col-3 mb-5">
+        <%= f.submit "変更を保存する", class: "btn btn-success" %>
+      </div>
+    </div>
+    <% end %>
+  </div>

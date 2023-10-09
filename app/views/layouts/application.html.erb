@@ -16,12 +16,16 @@
       <div class="container">
         <% if user_signed_in? %>
           <div class="row mb-5">
-            <div class="col mt-3">
+            <div class="col mt-5">
               <ul class="nav">
-
+                <li class="nav-item">
+                  <%= link_to root_path, class: "btn btn-outline-dark" do %>
+                    <i class="fa-solid fa-broom fa-shake fa-4x"></i>
+                  <% end %>
+                </li>
               </ul>
             </div>
-            <div class="col mt-3">
+            <div class="col mt-5">
               <ul class="nav justify-content-end">
                 <li class="nav-item">
                   <%= link_to "マイページ", user_path(current_user.id), class: "btn btn-outline-dark" %>
@@ -40,12 +44,16 @@
           </div>
         <% elsif admin_signed_in? %>
           <div class="row mb-5">
-            <div class="col mt-3">
+            <div class="col mt-5">
               <ul class="nav">
-
+                <li class="nav-item">
+                  <%= link_to root_path, class: "btn btn-outline-dark" do %>
+                    <i class="fa-solid fa-broom fa-shake fa-4x"></i>
+                  <% end %>
+                </li>
               </ul>
             </div>
-            <div class="col mt-3">
+            <div class="col mt-5">
               <ul class="nav justify-content-end">
                 <li class="nav-item">
                   <%= link_to "ユーザー一覧", admin_users_path, class: "btn btn-outline-dark" %>

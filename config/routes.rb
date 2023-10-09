@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   namespace :admin do
     resources :tags, only: [:new, :create, :index, :edit, :update, :destroy]
   end
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
+    root to: 'homes#top'
     resources :posts do
       resource :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :edit, :update, :destroy]
