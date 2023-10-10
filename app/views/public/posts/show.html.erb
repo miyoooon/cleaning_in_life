@@ -60,7 +60,7 @@
         <%= post_comment.created_at.strftime('%Y/%m/%d') %>
       </div>
       <div class="row col">
-        <%= link_to user_path, style: 'color: black;' do %>
+        <%= link_to user_path(post_comment.user.id), style: 'color: black;' do %>
           <%= post_comment.user.name %>
         <% end %>
         さん:
@@ -73,12 +73,14 @@
       </div>
     <% end %>
   </div>
+  <% if user_signed_in? %>
   <div class="row mt-5 col-6 justify-content-center">
     <%= form_with model: [@post, @post_comment] do |f| %>
       <%= f.text_area :comment, rows: '5', cols: '70', placeholder: "コメントを入力してください" %><br>
       <%= f.submit "送信する", class: "btn btn-primary" %>
     <% end %>
   </div>
+  <% end %>
   <div class="row mt-5">
     <div class="col-4">
       <% if @post.user == current_user or current_admin %>
@@ -86,7 +88,7 @@
       <% end %>
     </div>
     <div class="col-5">
-      <%= link_to "投稿一覧へ戻る", posts_path, class: "btn btn-primary btn-lg col-5" %>
+      <%= link_to "戻る", :back, class: "btn btn-primary btn-lg col-5" %>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 class Public::PostCommentsController < ApplicationController
+  before_action :authenticate_user_or_admin!
   def create
     post = Post.find(params[:post_id])
     comment = current_user.post_comments.new(post_comment_params)
@@ -33,6 +34,12 @@ class Public::PostCommentsController < ApplicationController
 
   def post_comment_params
     params.require(:post_comment).permit(:comment)
+  end
+
+  def authenticate_user_or_admin!
+    unless user_signed_in? || admin_signed_in?
+      redirect_to root_path
+    end
   end
 
 end

@@ -35,6 +35,33 @@
       <div class="row col">
         <%= post.text %>
       </div>
+      <% if user_signed_in? %>
+        <div class="row mt-5 col justify-content-end">
+          <% if post.favorited_by?(current_user) %>
+          <p>
+            <%= link_to post_favorites_path(post), method: :delete, class: "btn btn-danger" do %>
+              ♥<%= post.favorites.count %> いいね
+            <% end %>
+          </p>
+          <% else %>
+          <p>
+            <%= link_to post_favorites_path(post), method: :post, class: "btn btn-outline-danger" do %>
+              ♡<%= post.favorites.count %> いいね
+            <% end %>
+          </p>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="row mt-5 col justify-content-end">
+        <p>
+          <%= link_to post_path(post) do %>
+            コメント件数:　<%= post.post_comments.count %>件
+          <% end %>
+        </p>
+      </div>
+      <div class="row justify-content-center my-3">
+        <%= link_to "投稿詳細", post_path(post.id), class: "btn btn-outline-primary btn-lg" %>
+      </div>
     </div>
   </div>
   <% end %>

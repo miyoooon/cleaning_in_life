@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user_or_admin!, except: :index
 
 def new
   @post = Post.new
@@ -54,6 +55,12 @@ private
 
 def post_params
   params.require(:post).permit(:title, :text, :tag_id)
+end
+
+def authenticate_user_or_admin!
+    unless user_signed_in? || admin_signed_in?
+      redirect_to root_path
+    end
 end
 
 end

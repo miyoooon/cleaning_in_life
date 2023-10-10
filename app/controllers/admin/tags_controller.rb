@@ -42,4 +42,10 @@ private
    params.require(:tag).permit(:name)
   end
 
+  def authenticate_admin!
+    unless admin_signed_in?
+      redirect_to root_path
+    end
+  end
+
 end

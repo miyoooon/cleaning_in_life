@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :authenticate_user_or_admin!
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page])
@@ -21,13 +22,24 @@ class Public::UsersController < ApplicationController
   def withdraw
     @user = User.find(params[:id])
     @user.update(is_deleted: true)
-    reset_session
-    redirect_to  new_user_registration_path
+    if @user = current_user
+      reset_session
+      redirect_to  root_path
+    else @user = current_admin
+      redirect_to admin_users_path
+    end
   end
 
   private
+
   def user_params
   params.require(:user).permit(:name, :introduce)
+  end
+
+  def authenticate_user_or_admin!
+    unless user_signed_in? || admin_signed_in?
+      redirect_to root_path
+    end
   end
 
 end
