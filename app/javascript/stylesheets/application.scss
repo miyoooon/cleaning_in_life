@@ -1,1 +1,10 @@
 @use '~bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: "851MkPOP";
+  src: url("../fonts/851MkPOP_101.ttf") format("woff2");
+}
+
+body {
+  font-family: '851MkPOP' !important;
+}
