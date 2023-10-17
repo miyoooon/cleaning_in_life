@@ -1,33 +1,33 @@
 <div class="container">
-  <div class="row col-6">
-    <div class="col ms-5 mt-5 text-center">
+  <div class="row d-flex justify-content-center">
+    <div class="col-4 ms-5 mt-5 text-center">
       <h2 class="border rounded border-info text-info">コメント編集画面</h2>
     </div>
   </div>
   <%= form_with model: [@post, @comment], url: post_post_comment_path, method: :patch do |f| %>
-  <div class="row col mt-5">
+  <div class="row col mt-5 d-flex justify-content-center">
     <%= @comment.created_at.strftime('%Y/%m/%d') %>
   </div>
-  <div class="row col">
+  <div class="row col d-flex justify-content-center">
     <%= link_to user_path, style: 'color: black;' do %>
       <%= @comment.user.name %>
     <% end %>
     さん:
   </div>
-  <div class="row col mt-3">
+  <div class="row col mt-3 d-flex justify-content-center">
     <%= f.text_area :comment, rows: '5', cols: '70' %>
   </div>
-  <div class="row col mt-3">
-    <%= f.submit "更新する", class: "btn btn-success" %>
+  <div class="row col mt-5 d-flex justify-content-center">
+    <%= f.submit "更新する", class: "btn btn-success btn-lg col-2" %>
   </div>
   <% end %>
 
-  <div class="row mt-5">
-    <div class="col-5">
-      <%= link_to "コメントを削除する", post_post_comment_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-4 d-flex justify-content-center">
+      <%= link_to "コメントを削除する", post_post_comment_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-lg" %>
     </div>
-    <div class="col-3">
-      <%= link_to "戻る", post_path(@post.id), class: "btn btn-primary" %>
+    <div class="col-4 d-flex justify-content-center">
+      <%= link_to "戻る", post_path(@post.id), class: "btn btn-primary btn-lg col-4" %>
     </div>
   </div>
 </div>

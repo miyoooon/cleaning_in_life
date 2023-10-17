@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row col-3">
-    <div class="col ms-5 mt-5 text-center">
+  <div class="row d-flex justify-content-center">
+    <div class="col-3 ms-5 mt-5 text-center">
       <h2 class="border rounded border-info text-info">新規登録</h2>
     </div>
   </div>
@@ -8,40 +8,40 @@
   <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>
 
-      <div class="mb-3 row mt-5">
-        <label class="col-2 col-form-label">名前</label>
-        <div class="col-sm-4">
+      <div class="mb-3 row mt-5 d-flex justify-content-center">
+        <label class="col-3 col-form-label text-center">名前</label>
+        <div class="col-4 text-center">
           <%= f.text_field :name, class: "form-control", autofocus: true, autocomplete: "name", placeholder: "令和 道子" %>
         </div>
       </div>
 
-      <div class="mb-3 row">
-        <label class="col-2 col-form-label">紹介文</label>
-        <div class="col-sm-4">
+      <div class="mb-3 row d-flex justify-content-center">
+        <label class="col-3 col-form-label text-center">紹介文</label>
+        <div class="col-4 text-center">
           <%= f.text_field :introduce, class: "form-control", autofocus: true, autocomplete: "introduce", placeholder: "よろしくお願いします" %>
         </div>
       </div>
 
-      <div class="mb-3 row">
-        <label class="col-2 col-form-label">メールアドレス</label>
-        <div class="col-sm-4">
+      <div class="mb-3 row d-flex justify-content-center">
+        <label class="col-3 col-form-label text-center">メールアドレス</label>
+        <div class="col-4 text-center">
           <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
         </div>
       </div>
 
 
-      <div class="mb-3 row">
-        <label class="col-2 col-form-label">パスワード(6文字以上)</label>
-          <div class="col-sm-4">
+      <div class="mb-3 row d-flex justify-content-center">
+        <label class="col-3 col-form-label text-center">パスワード(6文字以上)</label>
+          <div class="col-4 text-center">
             <% if @minimum_password_length %>
             <% end %>
             <%= f.password_field :password, class: "form-control",  autocomplete: "new-password" %>
           </div>
       </div>
 
-      <div class="mb-3 row">
-        <label class="col-2 col-form-label">パスワード(確認用)</label>
-          <div class="col-sm-4">
+      <div class="mb-3 row d-flex justify-content-center">
+        <label class="col-3 col-form-label text-center">パスワード(確認用)</label>
+          <div class="col-4 text-center">
             <% if @minimum_password_length %>
             <% end %>
             <%= f.password_field :password_confirmation, class: "form-control",  autocomplete: "new-password" %>
@@ -49,13 +49,13 @@
       </div>
 
 
-      <div class="actions">
-        <%= f.submit "新規登録", class: "btn btn-success btn-lg col-6 mt-3" %>
+      <div class="actions d-flex justify-content-center">
+        <%= f.submit "新規登録", class: "btn btn-success btn-lg col-3 mt-3" %>
       </div>
       <% end %>
 
-      <div class="mt-5 row">
-        <h5 class="col-6">→　既に<span class="text-success">登録済みの方</span>は
+      <div class="mt-5 row d-flex justify-content-center">
+        <h5 class="col-6 text-center">→　既に<span class="text-success">登録済みの方</span>は
           <%= link_to "こちら", new_user_session_path %>
           からログイン
         </h5>

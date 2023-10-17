@@ -1,29 +1,31 @@
-<div class="container">
-  <div class="row col-4">
-    <div class="col ms-5 mt-5 text-center">
-      <h2 class="border rounded border-info text-info">管理者ログイン</h2>
+<div style="align-items: center; display: flex; justify-content: center;">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-4 ms-5 mt-5 text-center">
+        <h2 class="border-bottom border-info text-info">管理者ログイン</h2>
+      </div>
     </div>
-  </div>
-<%= form_with model: @admin, url: new_admin_session_path do |f| %>
-  <div class="row mt-5">
-    <div class="col-2">
-      <label class="col-form-label">メールアドレス</label>
-    </div>
-    <div class="col-sm-4">
-      <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
-    </div>
-  </div>
+    <%= form_with model: @admin, url: new_admin_session_path do |f| %>
+      <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-2">
+          <label class="col-form-label">メールアドレス</label>
+        </div>
+        <div class="col-sm-4">
+          <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
+        </div>
+      </div>
 
-  <div class="row mt-5">
-    <div class="col-2">
-      <label class="col-form-label">パスワード</label>
-    </div>
-    <div class="col-sm-4">
-      <%= f.password_field :password, class: "form-control", autofocus: true, autocomplete: "current-password" %>
-    </div>
+      <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-2">
+          <label class="col-form-label">パスワード</label>
+        </div>
+        <div class="col-sm-4">
+          <%= f.password_field :password, class: "form-control", autofocus: true, autocomplete: "current-password" %>
+        </div>
+      </div>
+      <div class="col mb-5 d-flex justify-content-center">
+        <%= f.submit "ログイン", class: "btn btn-success btn-lg col-6 my-5" %>
+      </div>
+    <% end %>
   </div>
-  <div class="col mb-5">
-    <%= f.submit "ログイン", class: "btn btn-success btn-lg col-6 my-5" %>
-  </div>
-  <% end %>
 </div>

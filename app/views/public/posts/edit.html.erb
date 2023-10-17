@@ -1,40 +1,40 @@
 <div class="container">
-   <div class="row col-3">
-    <div class="col ms-5 mt-5 text-center">
+   <div class="row d-flex justify-content-center">
+    <div class="col-3 ms-5 mt-5 text-center">
       <h2 class="border rounded border-info text-info">投稿編集</h2>
     </div>
   </div>
 
   <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
-  <div class="row mt-5">
-    <div class="col-2">
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-3 text-center">
       <label>タイトル</label>
     </div>
-    <div class="col-4">
+    <div class="col-4 text-center">
       <%= f.text_field :title, class: "form-control" %>
     </div>
   </div>
-  <div class="row mt-5">
-    <div class="col-2">
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-3 text-center">
       <label>本文</label>
     </div>
-    <div class="col-4">
-      <%= f.text_field :text, class: "form-control" %>
+    <div class="col-4 text-center">
+      <%= f.text_area :text, class: "form-control" %>
     </div>
   </div>
-  <div class="row mt-5">
-    <div class="col-2">
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-3 text-center">
       <label>タグ</label>
     </div>
     <div class="col-4 text-center">
       <%= f.collection_select :tag_id, Tag.all, :id, :name, include_blank: "選択してください" %>
     </div>
   </div>
-  <div class="row mt-5">
-    <div class="col-4">
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-4 d-flex justify-content-center">
       <%= f.submit "変更を保存する", class: "btn btn-success btn-lg" %>
     </div>
-    <div class="col-5">
+    <div class="col-4 d-flex justify-content-center">
       <%= link_to "投稿を削除する", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-lg" %>
     </div>
   </div>
