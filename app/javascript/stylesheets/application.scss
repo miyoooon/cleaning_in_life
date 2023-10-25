@@ -5,6 +5,24 @@
   src: url("../fonts/851MkPOP_101.ttf") format("woff2");
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: '851MkPOP' !important;
 }
+
+.top-image {
+  background-image: url('/assets/madohuki2.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

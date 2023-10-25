@@ -9,7 +9,10 @@
     <div class="row justify-content-center">
     <div class="border border-dark col-8 mt-5">
       <div class="row col-6">
-        <%= link_to favorite_post.user.name, user_path(favorite_post.user.id), class: "text-dark" %>さんの投稿
+        <%= link_to user_path(favorite_post.user.id), class: "text-dark border-bottom border-dark" do %>
+          <%= favorite_post.user.name %>
+        <% end %>
+        さんの投稿
       </div>
       <div class="row col-6">
         タイトル:　<%= favorite_post.title %>

@@ -15,15 +15,15 @@
     <header>
       <div class="container">
         <% if user_signed_in? %>
-          <div style="align-items: center; display: flex; justify-content: center;">
+          <div class="header" style="align-items: center; display: flex; justify-content: center;">
             <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
               <div class="container-fluid">
+                <%= link_to root_path, class: "navbar-brand" do %>
+                  <i class="fa-solid fa-broom fa-shake fa-2x text-success"></i>
+                <% end %>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-                <%= link_to root_path, class: "btn btn-outline-success mb-5" do %>
-                  <i class="fa-solid fa-broom fa-shake fa-3x"></i>
-                <% end %>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -47,12 +47,12 @@
           <div style="align-items: center; display: flex; justify-content: center;">
             <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
               <div class="container-fluid">
+                <%= link_to root_path, class: "navbar-brand" do %>
+                  <i class="fa-solid fa-broom fa-shake fa-2x text-success"></i>
+                <% end %>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-                <%= link_to root_path, class: "btn btn-outline-success mb-5" do %>
-                  <i class="fa-solid fa-broom fa-shake fa-3x"></i>
-                <% end %>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -73,34 +73,35 @@
             </nav>
           </div>
         <% else %>
-          <div style="align-items: center; display: flex; justify-content: center;">
+          <div class="header" style="align-items: center; display: flex; justify-content: center;">
             <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
               <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <%= link_to root_path, class: "navbar-brand" do %>
+                  <i class="fa-solid fa-broom fa-shake fa-2x text-success"></i>
+                <% end %>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-                <%= link_to root_path, class: "mt-3 mb-5 text-success" do %>
-                  <i class="fa-solid fa-broom fa-shake fa-2x"></i>
-                <% end %>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                      <%= link_to "新規登録", new_user_registration_path, class: "nav-link active text-info" %>
+                      <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-info" %>
                     </li>
                     <li class="nav-item">
-                      <%= link_to "ログイン", new_user_session_path, class: "nav-link active text-success" %>
+                      <%= link_to "ログイン", new_user_session_path, class: "nav-link text-success" %>
                     </li>
                     <li class="nav-item">
-                      <%= link_to "投稿一覧", posts_path, class: "nav-link active text-info" %>
+                      <%= link_to "投稿一覧", posts_path, class: "nav-link text-info" %>
                     </li>
                     <li class="nav-item">
-                      <%= link_to "管理者ログイン", new_admin_session_path, class: "nav-link active text-success" %>
+                      <%= link_to "管理者ログイン", new_admin_session_path, class: "nav-link text-success" %>
                     </li>
                   </ul>
                 </div>
               </div>
             </nav>
           </div>
+
         <% end %>
       </div>
     </header>

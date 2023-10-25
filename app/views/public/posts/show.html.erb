@@ -6,6 +6,16 @@
   </div>
   <div class="row mt-5 d-flex justify-content-center">
     <div class="col-3 text-center">
+      <label>投稿者</label>
+    </div>
+    <div class="col-4 text-center">
+      <%= link_to user_path(@post.user.id), class: "text-dark border-bottom border-dark" do %>
+        <%= @post.user.name %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-3 text-center">
       <label>タイトル</label>
     </div>
     <div class="col-4 text-center">
