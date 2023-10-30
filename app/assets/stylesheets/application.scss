@@ -12,6 +12,16 @@
   border-radius: 15px;
 }
 
+.top_image {
+  background-image: image-url('madohuki2.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
