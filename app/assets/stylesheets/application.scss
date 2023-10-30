@@ -22,6 +22,22 @@
   align-items: center;
   justify-content: center;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  
+}
+
+footer {
+  margin-top: auto;
+  width: 100%;
+  height: auto;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
