@@ -15,3 +15,13 @@ body {
   font-family: '851MkPOP' !important;
 }
 
+.top_image {
+  background-image: url('../images/madohuki2.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
