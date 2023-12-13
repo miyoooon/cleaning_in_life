@@ -6,3 +6,61 @@ ja:
       previous: <i class="fas fa-angle-left"></i>
       next: <i class="fas fa-angle-right"></i>
       truncate: "..."
+
+ja:
+  activerecord:
+    models:
+      admin: 管理者
+      favorite: いいね
+      post: 投稿
+      post_comment: コメント
+      tag: タグ
+      user: ユーザー
+    attributes:
+      admin:
+        email: メールアドレス
+        encrypted_password: パスワード
+      favorite:
+        user_id: ユーザーID
+        post_id: 投稿ID
+      post:
+        title: タイトル
+        text: 投稿文章
+        user_id: ユーザーID
+        tag_id: タグID
+      post_comment:
+        comment: コメント
+        user_id: ユーザーID
+        post_id: 投稿ID
+      tag:
+        name: タグ名
+      user:
+        email: メールアドレス
+        encrypted_password: パスワード
+        name: 名前
+        introduce: 紹介文
+        is_deleted: 有効･退会
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
