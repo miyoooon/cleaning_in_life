@@ -20,6 +20,16 @@
       <div class="row col">
         本文:　<%= favorite_post.text %>
       </div>
+      <div class="row col mt-3">
+        <% if favorite_post.tag.present? %>
+          タグ:　<%= favorite_post.tag.name %>
+        <% else %>
+          タグ付けはされていません
+        <% end %>
+      </div>
+      <div class="row col mt-3 justify-content-end">
+        投稿日時: <%= favorite_post.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+      </div>
       <% if user_signed_in? %>
         <div class="row mt-5 col justify-content-end">
           <% if favorite_post.favorited_by?(current_user) %>

@@ -41,6 +41,11 @@ ja:
         introduce: 紹介文
         is_deleted: 有効･退会
 
+ja:
+  errors:
+    messages:
+       not_saved: エラーが発生しました
+
 
 
 

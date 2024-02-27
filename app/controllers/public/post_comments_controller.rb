@@ -1,16 +1,24 @@
 class Public::PostCommentsController < ApplicationController
   before_action :authenticate_user_or_admin!
   def create
-    post = Post.find(params[:post_id])
+    @post = Post.find(params[:post_id])
     comment = current_user.post_comments.new(post_comment_params)
-    comment.post_id = post.id
-    comment.save!
-    redirect_to post_path(post)
+    comment.post_id = @post.id
+    if comment.save
+      redirect_to post_path(@post)
+    else
+      @post = Post.find(params[:post_id])
+      @post_comment = PostComment.new
+      render 'public/posts/show'
+    end
   end
 
   def edit
     @post = Post.find(params[:post_id])
     @comment = PostComment.find(params[:id])
+    unless @comment.user == current_user or current_admin
+      redirect_to post_path(@post.id)
+    end
   end
 
   def update

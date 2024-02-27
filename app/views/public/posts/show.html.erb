@@ -42,6 +42,14 @@
       <% end %>
     </div>
   </div>
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-3 text-center">
+      <label>投稿日時</label>
+    </div>
+    <div class="col-4 text-center">
+      <%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+    </div>
+  </div>
   <% if user_signed_in? %>
     <div class="row mt-5 d-flex justify-content-center">
       <div class="col-11 text-center">
@@ -65,7 +73,7 @@
     コメント件数:　<%= @post.post_comments.count %>件
   </div>
   <div class="mt-3">
-    <% @post.post_comments.each do |post_comment| %>
+    <% @post.post_comments.order(created_at: :desc).each do |post_comment| %>
       <div class="row col d-flex justify-content-center">
         <%= post_comment.created_at.strftime('%Y/%m/%d') %>
       </div>
@@ -97,7 +105,7 @@
   <div class="row mt-5 d-flex justify-content-center">
     <div class="col-3 d-flex justify-content-center">
       <% if @post.user == current_user or current_admin %>
-        <%= link_to "編集する", edit_post_path, class: "btn btn-success btn-lg" %>
+        <%= link_to "編集する", edit_post_path(@post.id), class: "btn btn-success btn-lg" %>
       <% end %>
     </div>
     <div class="col-3 d-flex justify-content-center">

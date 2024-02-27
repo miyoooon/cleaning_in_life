@@ -20,7 +20,7 @@ def index
   if params[:word].present?
     @posts = Post.where("title LIKE ? OR text LIKE ?", "%#{params[:word]}%", "%#{params[:word]}%").page(params[:page])
   else
-    @posts = Post.page(params[:page])
+    @posts = Post.page(params[:page]).order(created_at: :desc)
   end
   if params[:tag_id].present?
     @posts = @posts.joins(:tag).where(tags: { id: params[:tag_id] })

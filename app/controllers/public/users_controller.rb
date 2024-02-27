@@ -2,7 +2,7 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user_or_admin!
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page])
+    @posts = @user.posts.page(params[:page]).order(created_at: :desc)
   end
 
   def edit
