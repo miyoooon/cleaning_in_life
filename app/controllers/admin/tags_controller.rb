@@ -5,8 +5,8 @@ class Admin::TagsController < ApplicationController
   end
 
   def create
-    tag = Tag.new(tag_params)
-    if tag.save
+    @tag = Tag.new(tag_params)
+    if @tag.save
       redirect_to admin_tags_path
     else
       render :new
